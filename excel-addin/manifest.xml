@@ -3,7 +3,6 @@
   xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
-  xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
   xsi:type="TaskPaneApp">
 
   <Id>a1b2c3d4-e5f6-7890-abcd-ef1234567890</Id>
@@ -48,63 +47,24 @@
           </ExtensionPoint>
         </AllFormFactors>
 
-        <DesktopFormFactor>
-          <FunctionFile resid="Functions.Script.Url"/>
-          <ExtensionPoint xsi:type="PrimaryCommandSurface">
-            <OfficeTab id="TabHome">
-              <Group id="CommandsGroup">
-                <Label resid="CommandsGroup.Label"/>
-                <Icon>
-                  <bt:Image size="16" resid="Icon.16x16"/>
-                  <bt:Image size="32" resid="Icon.32x32"/>
-                  <bt:Image size="80" resid="Icon.80x80"/>
-                </Icon>
-                <Control xsi:type="Button" id="TaskpaneButton">
-                  <Label resid="TaskpaneButton.Label"/>
-                  <Supertip>
-                    <Title resid="TaskpaneButton.Label"/>
-                    <Description resid="TaskpaneButton.Tooltip"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="Icon.16x16"/>
-                    <bt:Image size="32" resid="Icon.32x32"/>
-                    <bt:Image size="80" resid="Icon.80x80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>ButtonId1</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-              </Group>
-            </OfficeTab>
-          </ExtensionPoint>
-        </DesktopFormFactor>
-
       </Host>
     </Hosts>
 
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://ashutoshr937.github.io/stashd/excel-addin/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://ashutoshr937.github.io/stashd/excel-addin/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://ashutoshr937.github.io/stashd/excel-addin/icon-80.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="https://via.placeholder.com/16"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="Functions.Script.Url"   DefaultValue="https://ashutoshr937.github.io/stashd/excel-addin/functions.js"/>
         <bt:Url id="Functions.Page.Url"     DefaultValue="https://ashutoshr937.github.io/stashd/excel-addin/functions.html"/>
         <bt:Url id="Functions.Metadata.Url" DefaultValue="https://ashutoshr937.github.io/stashd/excel-addin/functions.json"/>
         <bt:Url id="Taskpane.Url"           DefaultValue="https://ashutoshr937.github.io/stashd/excel-addin/taskpane.html"/>
-        <bt:Url id="LearnMoreUrl"           DefaultValue="https://ashutoshr937.github.io/stashd/"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="Functions.Namespace"    DefaultValue="STASHD"/>
-        <bt:String id="GetStarted.Title"       DefaultValue="Stashd is ready!"/>
-        <bt:String id="CommandsGroup.Label"    DefaultValue="Stashd"/>
-        <bt:String id="TaskpaneButton.Label"   DefaultValue="Stashd"/>
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Open the Stashd task pane"/>
+        <bt:String id="Functions.Namespace" DefaultValue="STASHD"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="GetStarted.Description" DefaultValue="Open the Stashd task pane to configure your API token, then use =STASHD.FETCH() in any cell."/>
+        <bt:String id="GetStarted.Description" DefaultValue="Use =STASHD.FETCH() in any cell to fetch a LinkedIn profile."/>
       </bt:LongStrings>
     </Resources>
 
