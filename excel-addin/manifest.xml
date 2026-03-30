@@ -14,6 +14,11 @@
   <Description DefaultValue="Fetch LinkedIn profiles directly in Excel using =STASHD.FETCH()"/>
   <SupportUrl DefaultValue="https://ashutoshr937.github.io/stashd/"/>
 
+  <AppDomains>
+    <AppDomain>https://ashutoshr937.github.io</AppDomain>
+    <AppDomain>https://api.apify.com</AppDomain>
+  </AppDomains>
+
   <Hosts>
     <Host Name="Workbook"/>
   </Hosts>
@@ -44,11 +49,6 @@
         </AllFormFactors>
 
         <DesktopFormFactor>
-          <GetStarted>
-            <Title resid="GetStarted.Title"/>
-            <Description resid="GetStarted.Description"/>
-            <LearnMoreUrl resid="LearnMoreUrl"/>
-          </GetStarted>
           <FunctionFile resid="Functions.Script.Url"/>
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
             <OfficeTab id="TabHome">
@@ -97,14 +97,14 @@
         <bt:Url id="LearnMoreUrl"           DefaultValue="https://ashutoshr937.github.io/stashd/"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="Functions.Namespace"        DefaultValue="STASHD"/>
-        <bt:String id="GetStarted.Title"           DefaultValue="Stashd is ready!"/>
-        <bt:String id="CommandsGroup.Label"        DefaultValue="Stashd"/>
-        <bt:String id="TaskpaneButton.Label"       DefaultValue="Stashd"/>
-        <bt:String id="TaskpaneButton.Tooltip"     DefaultValue="Open the Stashd task pane"/>
+        <bt:String id="Functions.Namespace"    DefaultValue="STASHD"/>
+        <bt:String id="GetStarted.Title"       DefaultValue="Stashd is ready!"/>
+        <bt:String id="CommandsGroup.Label"    DefaultValue="Stashd"/>
+        <bt:String id="TaskpaneButton.Label"   DefaultValue="Stashd"/>
+        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Open the Stashd task pane"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="GetStarted.Description"    DefaultValue="Open the Stashd task pane to configure your API token, then use =STASHD.FETCH() in any cell."/>
+        <bt:String id="GetStarted.Description" DefaultValue="Open the Stashd task pane to configure your API token, then use =STASHD.FETCH() in any cell."/>
       </bt:LongStrings>
     </Resources>
 
