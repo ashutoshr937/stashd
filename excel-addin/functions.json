@@ -1,0 +1,24 @@
+{
+  "functions": [
+    {
+      "id": "FETCH",
+      "name": "FETCH",
+      "description": "Fetches a LinkedIn profile and returns a row of values. Use =STASHD.FETCH(url) in a cell — results spill horizontally.",
+      "parameters": [
+        {
+          "name": "url",
+          "description": "LinkedIn profile URL (e.g. https://www.linkedin.com/in/username)",
+          "type": "string"
+        }
+      ],
+      "result": {
+        "type": "string",
+        "dimensionality": "matrix"
+      },
+      "options": {
+        "stream": false,
+        "cancelable": false
+      }
+    }
+  ]
+}

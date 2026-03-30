@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stashd</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", sans-serif;
+      font-size: 13px;
+      color: #1a1a2e;
+      background: #f4f6fb;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 14px;
+      border-bottom: 1.5px solid #e2e8f0;
+    }
+    .brand-icon {
+      width: 34px; height: 34px; background: #0a66c2;
+      border-radius: 8px; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0;
+    }
+    .brand-icon svg { display: block; }
+    .brand-name  { font-size: 17px; font-weight: 700; color: #0a66c2; }
+    .brand-sub   { font-size: 11px; color: #888; }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 14px 14px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.08);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .card-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    label { font-size: 12px; color: #444; margin-bottom: 3px; display: block; }
+    input[type="password"], input[type="text"] {
+      width: 100%; padding: 8px 10px;
+      border: 1.5px solid #cdd6e0; border-radius: 6px;
+      font-size: 12px; font-family: inherit; outline: none;
+      transition: border-color .15s;
+    }
+    input:focus { border-color: #0a66c2; }
+
+    .btn {
+      padding: 9px 14px; border: none; border-radius: 7px;
+      font-size: 13px; font-weight: 600; font-family: inherit;
+      cursor: pointer; transition: background .15s; width: 100%;
+    }
+    .btn-primary { background: #0a66c2; color: #fff; }
+    .btn-primary:hover { background: #084e96; }
+    .btn-ghost   { background: #f0f4fa; color: #0a66c2; }
+    .btn-ghost:hover { background: #e0eaf8; }
+
+    .status {
+      font-size: 12px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      display: none;
+    }
+    .status.ok    { display: block; background: #e8f5e9; color: #2e7d32; }
+    .status.warn  { display: block; background: #fff8e1; color: #e65100; }
+    .status.error { display: block; background: #fff0ef; color: #c0392b; }
+
+    .fields-list {
+      font-size: 11px;
+      color: #666;
+      line-height: 1.7;
+      columns: 2;
+      gap: 6px;
+    }
+    .fields-list span { display: block; }
+
+    code {
+      background: #f0f4fa;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-family: "Cascadia Code", "Consolas", monospace;
+      color: #0a66c2;
+    }
+
+    .hint { font-size: 11px; color: #888; line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+<div class="brand">
+  <div class="brand-icon">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M8 10h8M8 13h5M12 17l3-3-3-3" stroke="white" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div>
+    <div class="brand-name">Stashd</div>
+    <div class="brand-sub">LinkedIn → Excel</div>
+  </div>
+</div>
+
+<!-- Token section -->
+<div class="card">
+  <div class="card-title">API Token</div>
+  <div id="token-status" class="status"></div>
+  <div>
+    <label for="token-input">Apify API Token</label>
+    <input type="password" id="token-input" placeholder="apify_api_…">
+  </div>
+  <button class="btn btn-primary" id="save-btn">Save Token</button>
+  <button class="btn btn-ghost"   id="clear-btn">Clear Token</button>
+</div>
+
+<!-- Usage section -->
+<div class="card">
+  <div class="card-title">How to use</div>
+  <p class="hint">
+    In any cell, type:<br>
+    <code>=STASHD.FETCH("linkedin.com/in/username")</code><br><br>
+    Results spill horizontally across <strong>26 columns</strong> in this order:
+  </p>
+  <div class="fields-list" id="fields-list"></div>
+</div>
+
+<script src="taskpane.js"></script>
+</body>
+</html>
